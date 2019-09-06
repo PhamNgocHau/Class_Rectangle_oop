@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<br>
+<canvas id="myCanvas" width="600px" height="500px" style="border: 1px solid black;"></canvas><br>
+    <p id="result"></p>
+    <script>
+        let  Rectangle = function (length , width) {
+            this.length = length;
+            this.width = width;
+
+            this.getLength = function () {
+                return this.length;
+            }
+            this.getWidth = function () {
+                return this.width;
+            }
+            this.getArea = function () {
+                return length * width ;
+            }
+            this.getPerimeter = function () {
+                return (length + width ) * 2;
+            }
+        }
+
+        let rectangle = new Rectangle(400,200);
+        let length = rectangle.getLength();
+        let width = rectangle.getWidth();
+        let area = rectangle.getArea();
+        let perimeter = rectangle.getPerimeter();
+
+        var c = document.getElementById("myCanvas");
+        var ctx = c.getContext("2d");
+        ctx.beginPath();
+        ctx.rect(50,100,length,width)
+        ctx.stroke();
+        document.getElementById('result').innerHTML = 'diện tích là: '+ area + '<br>' + 'Chu vi là: ' + perimeter;
+    </script>
+</body>
+</html>
